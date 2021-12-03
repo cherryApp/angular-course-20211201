@@ -3,6 +3,11 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
+      <input [(ngModel)]="phrase" type="text" class="form-control">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
       <table class="table table-striped">
         <thead>
           <tr>
@@ -14,13 +19,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of userList | async">
+          <tr *ngFor="let user of userList | async | filter:phrase">
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.category }}</td>
             <td></td>
           </tr>
+          <!-- <app-table-row
+            *ngFor="let user of userList | async"
+            [rowData]="user"
+            [class.lead]="user.id < 5"
+            >
+          </app-table-row> -->
         </tbody>
       </table>
     </div>

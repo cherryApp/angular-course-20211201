@@ -11,6 +11,8 @@ import { UserService } from './service/user.service';
 export class AppComponent {
   title = 'angular-best-component-directive';
 
+  phrase: string = '';
+
   userList: Observable<User[]> = this.userService.getAll();
 
   constructor(
